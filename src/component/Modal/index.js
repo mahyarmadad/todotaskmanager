@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from "react";
+import { addToDO } from "../../redux/addtodo-actions";
 import "./modal.scss";
 export default function Modal({ open, setOpen }) {
   const close = useCallback(() => setOpen(false), [setOpen]);
@@ -36,6 +37,7 @@ export default function Modal({ open, setOpen }) {
             className="done-button"
             onClick={() => {
               close();
+              addToDO(newTask);
               setNewTask({ task: "", date: "" });
             }}
           >
