@@ -1,0 +1,33 @@
+.calander-dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: baseline;
+  text-align: center;
+  > :first-child {
+    grid-column-start: 6;
+    border-top: none;
+    border-bottom: none;
+  }
+  > :nth-child(2) {
+    border-top: none;
+    border-bottom: none;
+  }
+  :nth-child(n + 3) {
+    border-bottom: none;
+  }
+  :nth-child(odd) {
+    border-right: none;
+  }
+  :nth-child(even) {
+    border-right: none;
+  }
+}
+.calander-date {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  font-size: 12px;
+  > p {
+    margin: 0;
+    text-align: center;
+  }
+}
