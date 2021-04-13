@@ -1,0 +1,105 @@
+.main-top {
+  // border-bottom-left-radius: 16px;
+  // border-bottom-right-radius: 16px;
+  border-radius: 16px;
+  box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.3);
+  padding-bottom: 8px;
+  background: #e7e7f9;
+}
+.top-first-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  > h3 {
+    color: rgb(49, 47, 47);
+  }
+  .grid {
+    font-size: 12px;
+    text-align: center;
+    line-height: 0.2;
+  }
+  .search-bar {
+    position: relative;
+    > i {
+      position: absolute;
+      margin-top: 10px;
+      margin-left: 8px;
+      background: #ccccf7;
+      font-weight: normal;
+      font-size: 12px;
+      padding: 4px;
+      border-radius: 50%;
+    }
+    > input {
+      padding: 8px;
+      padding-left: 34px;
+      border-radius: 50vh;
+      background-color: #e7e7f9;
+      border: 4px solid whitesmoke;
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+      width: 120px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+.calander-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  .calander-left,
+  .calander-right {
+    border: none;
+    background-color: #ccccf7;
+    border-radius: 50%;
+    padding: 2px 6px;
+    i {
+      font-weight: 400;
+      font-size: 12px;
+    }
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .time-buttton {
+    background: none;
+    border: none;
+    font-weight: bold;
+    color: #2e2e2e;
+    border-radius: 50vh;
+    padding: 4px 8px;
+    text-transform: capitalize;
+
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.time-button-active {
+  background: orange !important;
+  color: white !important;
+  text-shadow: 0 0 16px black;
+  box-shadow: 0 0 14px orange;
+}
+
+.calander-days {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #c2c2da;
+  border-radius: 50vh;
+  padding: 0 16px;
+  font-size: 14px;
+  margin-top: 16px;
+}

@@ -29,7 +29,9 @@
   &:hover {
     cursor: pointer;
   }
-
+  &:focus {
+    outline: none;
+  }
   .plus {
     margin-right: 8px;
     background-color: #ccccf7;

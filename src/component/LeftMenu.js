@@ -19,7 +19,7 @@ export default function LeftMenu() {
       <div style={{ marginRight: 16 }}>
         <div className="task-div">
           <button className="add-task" onClick={() => setOpen(true)}>
-            <i class="plus far fa-plus"></i>
+            <i className="plus far fa-plus"></i>
             <span>Add a Task</span>
           </button>
 
@@ -27,7 +27,7 @@ export default function LeftMenu() {
             <li className="task-list-item">
               <input type="radio" id="task" name="task" value="a new task" />
               <div className="grid">
-                <label for="task" className="bold">
+                <label htmlFor="task" className="bold">
                   a new task
                 </label>
                 <small>today</small>

@@ -15,9 +15,9 @@ export default function Accordion({ CompeleteTasks }) {
             onClick={() => setExpanded(!expanded)}
           >
             {expanded ? (
-              <i class="fas fa-chevron-up"></i>
+              <i className="fas fa-chevron-up"></i>
             ) : (
-              <i class="fas fa-chevron-down"></i>
+              <i className="fas fa-chevron-down"></i>
             )}
           </button>
         </div>

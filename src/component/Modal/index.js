@@ -12,7 +12,7 @@ export default function Modal({ open, setOpen }) {
       <div className="modal-body">
         <div className="form">
           <div className="grid">
-            <label for="newTask">Add a New Task</label>
+            <label htmlFor="newTask">Add a New Task</label>
             <input
               id="newTask"
               name="task"
@@ -22,7 +22,7 @@ export default function Modal({ open, setOpen }) {
           </div>
 
           <div className="grid">
-            <label for="taskDate">Task Date</label>
+            <label htmlFor="taskDate">Task Date</label>
             <input
               type="date"
               id="taskDate"
