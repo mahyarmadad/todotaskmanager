@@ -1,0 +1,32 @@
+.main-Accordion {
+  border-radius: 50vh;
+  margin-top: 36px;
+  padding: 0 16px;
+  box-shadow: 0px 0px 16px #212121;
+  background-color: #e3e3fb;
+}
+.accordion-detail {
+  background-color: #e3e3fb;
+  overflow: hidden;
+  transition: 0.3s all ease-out 0s;
+}
+.accordion-headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.accordion-button {
+  margin-right: 8px;
+  background-color: #ccccf7;
+  border-radius: 50vh;
+  padding: 4px;
+  border: none;
+  i {
+    font-weight: 400;
+  }
+}
+
+.no-height {
+  height: 0;
+  overflow: hidden;
+}

@@ -1,0 +1,10 @@
+.main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  margin: 100px 50px;
+  padding: 8px;
+  box-shadow: 0px 0px 24px rgb(41, 55, 73);
+  background-color: rgb(204, 204, 247);
+  border: 8px solid whitesmoke;
+  border-radius: 30px;
+}
