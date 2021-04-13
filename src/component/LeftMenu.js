@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./Accordion";
 import avatar from "./img/avatar.jfif";
 import "./LeftMenu.scss";
+import Modal from "./Modal";
 
 export default function LeftMenu() {
+  const [open, setOpen] = useState(false);
   return (
     <div className="left-menu">
       <div className="flex align-center">
@@ -16,7 +18,7 @@ export default function LeftMenu() {
       <hr className="divider" />
       <div style={{ marginRight: 16 }}>
         <div className="task-div">
-          <button className="add-task">
+          <button className="add-task" onClick={() => setOpen(true)}>
             <i class="plus far fa-plus"></i>
             <span>Add a Task</span>
           </button>
@@ -35,6 +37,7 @@ export default function LeftMenu() {
         </div>
 
         <Accordion />
+        <Modal open={open} setOpen={setOpen} />
       </div>
     </div>
   );
