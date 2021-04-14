@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { makeItComplete } from "../redux/addtodo-actions";
 import { getTodos } from "../redux/selector";
@@ -7,11 +7,23 @@ import avatar from "./img/avatar.jfif";
 import "./LeftMenu.scss";
 import Modal from "./Modal";
 
+const fetchData = async () => {
+  const res = await fetch(
+    "https://6075978f0baf7c0017fa6847.mockapi.io/api/tasks/todos",
+  );
+  return res.json();
+};
+
 export default function LeftMenu(props) {
   const [open, setOpen] = useState(false);
   const allTodos = useSelector(getTodos);
   const completeTodo = allTodos?.filter((task) => task.complete === true);
   const dispatch = useDispatch();
+  console.log(`allTodos`, allTodos);
+  useEffect(() => {
+    fetchData().then((data) => dispatch({ type: "SET_TASKS", payload: data }));
+  }, [dispatch]);
+
   return (
     <div className="left-menu">
       <div className="flex align-center">

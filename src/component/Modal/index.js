@@ -1,7 +1,23 @@
 import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addToDO } from "../../redux/addtodo-actions";
 import "./modal.scss";
+
+const SendData = async (data) => {
+  try {
+    const res = await fetch(
+      "https://6075978f0baf7c0017fa6847.mockapi.io/api/tasks/todos",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      },
+    );
+    console.log(`ON SAVE DATA GET`, res.json());
+    return res;
+  } catch (error) {
+    console.log(`ON SAVE DATA ERROR`, error.message);
+  }
+};
 
 export default function Modal({ open, setOpen }) {
   const dispatch = useDispatch();
@@ -44,7 +60,9 @@ export default function Modal({ open, setOpen }) {
             className="done-button"
             onClick={() => {
               close();
-              dispatch(addToDO(newTask));
+              SendData(newTask).then((data) =>
+                dispatch({ type: "ADD_TODO", payload: data }),
+              );
               setNewTask({ task: "", date: "", complete: false });
             }}
           >

@@ -9,6 +9,7 @@ const TaskDay = ({ tasks, calanderDay }) => {
   return tasks.map((task, i) => {
     const day = new Date(task.date).getDate();
     if (day === calanderDay) return <p key={i}>{task.task}</p>;
+    else return;
   });
 };
 export default function Calander() {
