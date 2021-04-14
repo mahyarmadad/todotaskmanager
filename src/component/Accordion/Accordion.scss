@@ -6,7 +6,7 @@
   background-color: #e3e3fb;
 }
 .accordion-detail {
-  background-color: #e3e3fb;
+  // background-color: #e3e3fb;
   overflow: hidden;
   transition: 0.3s all ease-out 0s;
 }
@@ -36,4 +36,27 @@
 .no-height {
   height: 0;
   overflow: hidden;
+}
+
+.complete-list-item {
+  display: flex;
+  align-items: center;
+  text-decoration: line-through;
+  line-height: 1;
+  P {
+    margin-right: 16px;
+  }
+}
+.task-list-item {
+  display: flex;
+  align-items: center;
+  > input {
+    margin: 0;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  small {
+    font-size: 10px;
+    color: gray;
+  }
 }

@@ -1,9 +1,16 @@
 import React, { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import { addToDO } from "../../redux/addtodo-actions";
 import "./modal.scss";
+
 export default function Modal({ open, setOpen }) {
+  const dispatch = useDispatch();
   const close = useCallback(() => setOpen(false), [setOpen]);
-  const [newTask, setNewTask] = useState({ task: "", date: "" });
+  const [newTask, setNewTask] = useState({
+    task: "",
+    date: "",
+    complete: false,
+  });
   const handelChange = (e) => {
     setNewTask({ ...newTask, [e.target.name]: e.target.value });
   };
@@ -37,8 +44,8 @@ export default function Modal({ open, setOpen }) {
             className="done-button"
             onClick={() => {
               close();
-              addToDO(newTask);
-              setNewTask({ task: "", date: "" });
+              dispatch(addToDO(newTask));
+              setNewTask({ task: "", date: "", complete: false });
             }}
           >
             Done

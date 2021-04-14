@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { makeItComplete } from "../redux/addtodo-actions";
+import { getTodos } from "../redux/selector";
 import Accordion from "./Accordion";
 import avatar from "./img/avatar.jfif";
 import "./LeftMenu.scss";
 import Modal from "./Modal";
 
-export default function LeftMenu() {
+export default function LeftMenu(props) {
   const [open, setOpen] = useState(false);
+  const allTodos = useSelector(getTodos);
+  const completeTodo = allTodos?.filter((task) => task.complete === true);
+  const dispatch = useDispatch();
   return (
     <div className="left-menu">
       <div className="flex align-center">
@@ -24,19 +30,33 @@ export default function LeftMenu() {
           </button>
 
           <ul className="task-list">
-            <li className="task-list-item">
-              <input type="radio" id="task" name="task" value="a new task" />
-              <div className="grid">
-                <label htmlFor="task" className="bold">
-                  a new task
-                </label>
-                <small>today</small>
-              </div>
-            </li>
+            {allTodos?.length ? (
+              allTodos
+                .filter((task) => task.complete !== true)
+                .map((todo, i) => (
+                  <li key={i} className="task-list-item">
+                    <input
+                      type="radio"
+                      id="task"
+                      name={todo.task}
+                      value={todo.task}
+                      onClick={() => dispatch(makeItComplete(i))}
+                    />
+                    <div className="grid">
+                      <label htmlFor="task" className="bold">
+                        {todo.task}
+                      </label>
+                      <small>{todo.date}</small>
+                    </div>
+                  </li>
+                ))
+            ) : (
+              <p>No Task</p>
+            )}
           </ul>
         </div>
 
-        <Accordion />
+        <Accordion tasks={completeTodo} />
         <Modal open={open} setOpen={setOpen} />
       </div>
     </div>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { addToDO } from "../../redux/addtodo-actions";
 import "./Accordion.scss";
 
-export default function Accordion({ CompeleteTasks }) {
+export default function Accordion({ tasks }) {
   const [expanded, setExpanded] = useState(false);
-
+  console.log(`Complete tasks`, tasks);
   return (
     <div className="main-Accordion">
       <div className="accordion-summary">
@@ -26,7 +27,12 @@ export default function Accordion({ CompeleteTasks }) {
             expanded ? "full-height" : "no-height"
           } accordion-detail`}
         >
-          {/* <CompeleteTasks /> */}
+          {tasks.map((todo, i) => (
+            <li key={i} className="complete-list-item">
+              <p>{todo.task}</p>
+              <small>{todo.date}</small>
+            </li>
+          ))}
         </div>
       </div>
     </div>
